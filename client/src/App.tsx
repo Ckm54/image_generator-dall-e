@@ -3,6 +3,8 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import logo from './assets/logo.svg';
 import { Home, CreatePost } from './pages';
 
+export const BASE_URL = 'https://dall-e-z1i1.onrender.com/api/v1';
+
 const App = () => {
   return (
     <BrowserRouter>

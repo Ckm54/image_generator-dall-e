@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { getRandomPrompt } from "../utils";
 import preview from "../assets/preview.png";
 import { FormField, Loader } from "../components";
+import { BASE_URL } from "../App";
 
 const CreatePost = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
-        const response = await fetch("http://localhost:8080/api/v1/dalle/", {
+        const response = await fetch(`${BASE_URL}/dalle`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -52,7 +53,7 @@ const CreatePost = () => {
       setLoading(true);
 
       try {
-        const response = await fetch('http://localhost:8080/api/v1/post', {
+        const response = await fetch(`${BASE_URL}/post`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
